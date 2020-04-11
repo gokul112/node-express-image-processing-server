@@ -1,6 +1,11 @@
-const express = require('express')
+const express = require('express');
 const path = require('path');
-const app = express()
+const app = express();
+const router = require('./src/router');
+
+app.use('/',router);
+
+app.use(express.static(path.resolve(__dirname, 'uploads')));
 
 const pathToIndex = path.resolve(__dirname, '../client/index.html');
 
